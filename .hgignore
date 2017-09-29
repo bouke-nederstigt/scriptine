@@ -4,3 +4,4 @@ _build
 .pyc
 dist
 scriptine.egg-info
+.idea

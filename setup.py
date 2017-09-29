@@ -1,23 +1,18 @@
-import scriptine
+from setuptools import setup
 import os
 
-name = "scriptine"
-version = scriptine.__version__
+name = "scriptinep3"
+version = "0.3.1"
 
-class zipdist(scriptine.misc.DistutilsCommand):
-    def run(self):
-        from scriptine.meta import zipdist_command
-        zipdist_command()
-
-options = scriptine.misc.Options(
+setup(
     name = name,
     version = version,
     author = "Oliver Tonnhofer",
-    author_email = "olt@omniscale.de",
-    description = 'python shell scripts made easy',
+    author_email = "",
+    description = 'python shell scripts made easy - scriptine Ported to python 3',
     long_description=open('README.rst').read() +'\n' + open('CHANGELOG.txt').read(),
     license = 'MIT License',
-    url = 'https://github.com/olt/scriptine',
+    url = 'https://github.com/bouke-nederstigt/scriptine',
     classifiers=[
       'License :: OSI Approved :: MIT License',
       'Programming Language :: Python',
@@ -26,15 +21,5 @@ options = scriptine.misc.Options(
     install_requires=[
         "wrapt"
     ],
-    zip_safe = False,
-    cmdclass = {
-        'zipdist': zipdist,
-    }
+    zip_safe = False
 )
-
-if __name__ == '__main__':
-    try:
-        from setuptools import setup
-    except ImportError:
-        from distutils.core import setup
-    setup(**options)
